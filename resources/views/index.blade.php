@@ -34,7 +34,7 @@
                         <p>{{ Session::get('success') }}</p>
                     </div>
                 @endif
-                <button type="button" class="btn btn-primary" name="add" id="add" >Add More</button>
+                
                 <table class="table table-bordered" id="table">
                     <tr>
                         <th>Name</th>
@@ -49,7 +49,7 @@
                         @enderror
                         <td><input type="email" name="inputs[0][email]" class="form-control" placeholder="Enter Email"></td>
                         <td><input type="number" name="inputs[0][mark]" class="form-control" placeholder="Enter Mark"></td>
-                        <td>g</td>
+                        <td><button type="button" class="btn btn-primary" name="add" id="add" >Add More</button></td>
                     </tr>
                 </table>
                 <button type="submit" class="btn btn-primary col-md-2">Submit</button>
@@ -62,7 +62,7 @@
         $('#add').click(function(){
             ++i;
             $('#table').append(
-                `<tr>
+                `<tr id = "dismis">
                     <td><input type="text" name="inputs[`+i+`][name]" class="form-control" placeholder="Enter Name"></td>
                     <td><input type="email" name="inputs[`+i+`][email]" class="form-control" placeholder="Enter Email"></td>
                     <td><input type="number" name="inputs[`+i+`][mark]" class="form-control" placeholder="Enter Mark"></td>
@@ -71,7 +71,7 @@
         });
 
         $(document).on('click','.remove-table-row', function(){
-            $(this).parents('tr').remove();
+            $(this).parents('#dismis').remove();
         })
     </script>
   <!-- Bootstrap JavaScript Libraries -->
